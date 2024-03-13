@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Secure Login</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="container-fluid">
+  <h2>Login Activity Dashboard</h2>
+
+  <div class="row">
+    <div class="col-md-3">
+      <h3>Summary</h3>
+      <ul>
+        <li>Total Login Attempts: <span id="total-attempts"></span></li>
+        <li>Successful Logins: <span id="successful-logins"></span></li>
+        <li>Failed Attempts: <span id="failed-attempts"></span></li>
+        <li>Last Hour: <span id="last-hour-activity"></span></li>
+      </ul>
+    </div>
+    <div class="col-md-9">
+      <h3>Login Activity</h3>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Username</th>
+            <th>Timestamp</th>
+            <th>IP Address</th>
+            <th>Status</th>
+            <th>User Agent</th>
+            <th>Country</th>
+          </tr>
+        </thead>
+        <tbody id="login-data"></tbody>
+      </table>
+      <div class="row">
+        <div class="col-md-6">
+          <canvas id="login-trend-chart"></canvas>
+        </div>
+        <div class="col-md-6">
+          <canvas id="login-status-chart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-12">
+      <h3>Filters</h3>
+      <form>
+        <button type="submit" class="btn btn-primary">Filter</button>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>
