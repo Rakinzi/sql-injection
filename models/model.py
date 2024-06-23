@@ -1,5 +1,5 @@
 import contextlib
-
+from db.config import Database
 from joblib import load
 
 
@@ -17,10 +17,15 @@ class Model:
             vectorized_inputs = vectorizer.transform([input])
             if model.predict(vectorized_inputs) == '1':
                 sql_injections.append(input)
-                if len(sql_injections) == 0:
-                    print("No sql injections detected")
-                    return 0
-                else:
-                    print("Sql injections detected")
-                    print(sql_injections)
-                    return 1
+        if len(sql_injections) > 0:
+            print("SQL injections detected:")
+            for statement in sql_injections:
+                print(statement)
+            return 1, sql_injections  # Return both flag and list of SQL injection payloads
+        else:
+            print("No SQL injections detected.")
+            return 0, []  # No SQL injections detected, return 0 and empty list
+
+
+
+
